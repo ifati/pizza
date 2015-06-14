@@ -1,0 +1,34 @@
+<?php
+echo $this->headTitle('Pizza');
+?>
+
+<div class="row">
+  <div class="col-md-8"><h1> La liste de nos Pizzas </h1></div>
+  <div class="col-md-4"><a href="<?php echo $this->url('Projet',array('action'=>'add'));?>"> <b class="glyphicon glyphicon-plus"> </b>Ajouter</a></div>
+</div>
+
+	<table class="table">
+		<tr>
+			<td> <b> Nom Pizza</b> </td>
+			<td> <b>Les ingredients</b> </td>
+			<td> <b>Petite Pizza</b> </td>
+			<td> <b>Grande Pizza</b> </td>
+			<td> <b>Familiale Pizza</b> </td>
+			<td> <b>Party Pizza</b> </td>
+			<td> <b>Action</b></td>
+		</tr>
+
+		<?php foreach ($pizzas as $pizzaRow) {?>
+		<tr>
+			<td> <?php echo $pizzaRow->name; ?></td>
+			<td> <?php echo $pizzaRow->ingredients; ?></td>
+			<td> <?php echo $pizzaRow->smallprice; ?></td>
+			<td> <?php echo $pizzaRow->bigprice; ?></td>
+			<td> <?php echo $pizzaRow->famillyprice; ?></td>
+			<td> <?php echo $pizzaRow->partyprice; ?></td>
+			<td>
+			<a href="<?php echo $this->url('Projet',array('action'=>'edit','id'=> $pizzaRow->id));?>"> <b class="glyphicon glyphicon-edit"> </b></a>
+			<a href="<?php echo $this->url('Projet',array('action'=>'delete','id'=> $pizzaRow->id));?>"> <b class="glyphicon glyphicon-remove"> </b></a></td>
+		</tr>
+		<?php }  ?>
+	</table>

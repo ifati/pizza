@@ -1,0 +1,27 @@
+<?php
+echo $this->headTitle('Ajouter nouvelle Pizza');
+?>
+
+<div class="row">
+  <div class="col-md-8"><h1> Ajouter nouvelle Pizza </h1></div>
+  <div class="col-md-4"> </div>
+</div>
+
+<?php 
+$form = $this->form;
+$form->setAttribute('action', $this->url('Projet', array('action'=>'add')));
+$form->prepare();
+
+echo $this->form()->openTag($form);
+echo $this->formRow($form->get('name')) . "</br>";
+echo $this->formRow($form->get('ingredients')) . "</br>";
+echo $this->formRow($form->get('smallpizza')) . "</br>";
+echo $this->formRow($form->get('bigpizza')) . "</br>";
+echo $this->formRow($form->get('famillypizza')) . "</br>"; 
+echo $this->formRow($form->get('partyprice')) . "</br>";
+echo $this->formRow($form->get('famillyprice')) . "</br>";
+echo $this->formRow($form->get('smallprice')) . "</br>";
+echo $this->formRow($form->get('bigprice')) . "</br>";
+echo $this->formRow($form->get('addpizza')) . "</br>";
+echo $this->form()->closeTag();
+?>
